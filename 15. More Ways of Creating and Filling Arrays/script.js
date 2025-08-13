@@ -37,23 +37,31 @@ const accounts = [account1, account2, account3, account4];
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 
-// groupBy method
-const groupedMovements = Object.groupBy(movements, movement =>
-  movement > 0 ? 'deposit' : 'withdrawal'
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(arr);
+
+// fill method
+const x = new Array(7);
+console.log(x);
+
+x.fill(1);
+console.log(x);
+
+x.fill(1, 3);
+console.log(x);
+
+arr.fill(23, 2, 6);
+console.log(arr);
+
+// from method
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+const randomArr = Array.from(
+  { length: 100 },
+  (_, i) => i + Math.trunc(Math.random() * 100) + 1
 );
-console.log(groupedMovements);
-
-const groupedByActivity = Object.groupBy(accounts, account => {
-  const movementCount = account.movements.length;
-
-  if (movementCount >= 8) return 'very active';
-  if (movementCount >= 4) return 'active';
-  if (movementCount >= 1) return 'moderate';
-
-  return 'inactive';
-});
-
-console.log(groupedByActivity);
-
-const groupedAccounts = Object.groupBy(accounts, account => account.type);
-console.log(groupedAccounts);
+console.log(randomArr);
